@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lugx-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: app.lugx.cloud
+      http: 
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: lugx-frontend-nginx-service
+                port:
+                  number: 80
