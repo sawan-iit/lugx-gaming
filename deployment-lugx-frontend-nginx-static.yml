@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lugx-frontend-nginx-deployment
+  labels:
+    app: lugx-frontend-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lugx-frontend-nginx
+  template:
+    metadata:
+      labels:
+        app: lugx-frontend-nginx
+    spec:
+      containers: 
+        - name: lugx-frontend-nginx-container
+          image: sawaniit/lugx-frontend-nginx-static:latest
+          ports:
+            - containerPort: 80
+
